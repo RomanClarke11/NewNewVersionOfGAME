@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cicoucrw3ud14"]
+
+[ext_resource type="Script" path="res://scripts/safe.gd" id="1_81dvm"]
+[ext_resource type="Texture2D" uid="uid://tirtfgrn4e8e" path="res://Sprites/safe.png" id="2_uj6mi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qakx3"]
+size = Vector2(107.5, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk2ho"]
+size = Vector2(85, 83)
+
+[node name="safe" type="Area2D"]
+collision_mask = 5
+script = ExtResource("1_81dvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, 7.5)
+shape = SubResource("RectangleShape2D_qakx3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_dk2ho")
+
+[node name="Safe" type="Sprite2D" parent="."]
+position = Vector2(2, 3)
+texture = ExtResource("2_uj6mi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
