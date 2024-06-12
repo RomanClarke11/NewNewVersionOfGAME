@@ -1,12 +1,9 @@
 extends Area2D
-
+@onready var player = get_node("/root/boss_room/Player")
 
 
 func _physics_process(_delta):
-	var playerInRange = get_overlapping_bodies()
-	if playerInRange.size() > 0:
-		var target = playerInRange.front()
-		look_at(target.global_position)
+		look_at(player.global_position)
 #shoots the bullet 
 func shoot():
 	const BULLET = preload("res://Scenes/bullet.tscn")

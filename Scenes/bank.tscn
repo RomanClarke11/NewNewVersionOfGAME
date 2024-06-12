@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d7k2c8dx1tbs"]
+[gd_scene load_steps=3 format=3 uid="uid://d7k2c8dx1tbs"]
 
 [ext_resource type="Script" path="res://Scripts/bank.gd" id="1_tdspc"]
+[ext_resource type="AudioStream" uid="uid://coyair7hedhcq" path="res://Sounds/Hyrule Castle Interior (The Legend of Zelda_ Breath of the Wild OST).mp3" id="2_m0ctd"]
 
 [node name="bank" type="ColorRect"]
 offset_right = 40.0
@@ -183,7 +184,10 @@ text = "Exit"
 position = Vector2(590, 320)
 zoom = Vector2(3.5, 3.5)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_m0ctd")
+autoplay = true
 
 [connection signal="pressed" from="ColorRect/startScreen/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="ColorRect/startScreen/Button" to="." method="_on_button_pressed"]
@@ -196,4 +200,4 @@ zoom = Vector2(3.5, 3.5)
 [connection signal="pressed" from="ColorRect/input/1gIn/fiveGIn/fiftyIn" to="." method="_on_fifty_in_pressed"]
 [connection signal="pressed" from="ColorRect/input/1gIn/fiveGIn/fiftyIn/allIn" to="." method="_on_all_in_pressed"]
 [connection signal="pressed" from="ColorRect/Exit" to="." method="_on_exit_pressed"]
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="finished" from="music" to="." method="_on_audio_stream_player_2d_finished"]

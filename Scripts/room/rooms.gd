@@ -18,7 +18,7 @@ func _on_area_2d_body_entered(body):
 func spawnMobs():
 	for i in range(mobNums):
 		var duck = preload("res://Scenes/duck.tscn").instantiate()
-		%PathFollow2D.progress_ratio = randf()
+		%PathFollow2D.progress_ratio = randf_range(-1,1)
 		duck.position = %PathFollow2D.position
 		call_deferred("add_child", duck)
 	
