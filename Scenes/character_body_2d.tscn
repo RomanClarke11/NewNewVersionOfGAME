@@ -1,8 +1,9 @@
-[gd_scene load_steps=60 format=3 uid="uid://c6p48e67nnwyf"]
+[gd_scene load_steps=61 format=3 uid="uid://c6p48e67nnwyf"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControlls.gd" id="1_gbjol"]
 [ext_resource type="Texture2D" uid="uid://dwxblk33c08lp" path="res://Sprites/player.png" id="2_ykt0p"]
 [ext_resource type="AudioStream" uid="uid://cc2mbssq5teuv" path="res://Sounds/grunt.mp3" id="3_o6iro"]
+[ext_resource type="AudioStream" uid="uid://c1eskcld2vn3k" path="res://Sounds/hurt.mp3" id="4_krfgm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_816cu"]
 atlas = ExtResource("2_ykt0p")
@@ -465,3 +466,7 @@ shape = SubResource("RectangleShape2D_b812g")
 [node name="grunt" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_o6iro")
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_krfgm")

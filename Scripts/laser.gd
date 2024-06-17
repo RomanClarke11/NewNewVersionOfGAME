@@ -1,11 +1,9 @@
 extends Marker2D
 @onready var player = get_node("/root/bossRoom/Player")
-var random = randf()
+
 
 func _physics_process(_delta):
-	var position = player.global_position
-	position += random
-	look_at(position)
+	pass
 
 func shoot():
 	const BULLET = preload("res://Scenes/bullet.tscn")

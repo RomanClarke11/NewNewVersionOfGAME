@@ -8,5 +8,6 @@
 	"playerSpeed":450,
 	"bootsON":false,
 	"fairyBottle":false,
-	"startFloor":1
+	"startFloor":1,
+	"bankGold":0
 }

@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3ggun8q8h1kd"]
+[gd_scene load_steps=36 format=3 uid="uid://d3ggun8q8h1kd"]
 
+[ext_resource type="Script" path="res://Scripts/boss_room.gd" id="1_jjnim"]
 [ext_resource type="Texture2D" uid="uid://cptfcqbmce722" path="res://Sprites/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="1_lnn7u"]
 [ext_resource type="Texture2D" uid="uid://benniodpnjcpt" path="res://Sprites/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Trees.png" id="2_pvm2x"]
 [ext_resource type="Texture2D" uid="uid://disdooucbdty3" path="res://Sprites/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="3_jjyq8"]
 [ext_resource type="PackedScene" uid="uid://c6p48e67nnwyf" path="res://Scenes/character_body_2d.tscn" id="4_o2ije"]
+[ext_resource type="Script" path="res://Scripts/bossHealth.gd" id="5_2a1s7"]
 [ext_resource type="PackedScene" uid="uid://tfb1n8dl6ojr" path="res://Scenes/wall.tscn" id="5_ipkgg"]
 [ext_resource type="PackedScene" uid="uid://c3cc6pyeqdw0y" path="res://Scenes/boss.tscn" id="6_hs1ec"]
+[ext_resource type="Texture2D" uid="uid://s7v6uliur3lm" path="res://Sprites/blood.png" id="6_i8wf3"]
+[ext_resource type="Texture2D" uid="uid://v5d881hphj60" path="res://Sprites/Heartspritesheet.png" id="7_dvi3j"]
+[ext_resource type="AudioStream" uid="uid://wecapc7tnfga" path="res://Sounds/HOLLOW KNIGHT OST - GODS & GLORY [EXTENDED] [Godsmaster Boss Gauntlet Theme].mp3" id="11_42k73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nikb5"]
 texture = ExtResource("1_lnn7u")
@@ -695,7 +700,171 @@ sources/0 = SubResource("TileSetAtlasSource_nikb5")
 sources/1 = SubResource("TileSetAtlasSource_406pj")
 sources/2 = SubResource("TileSetAtlasSource_bgam7")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo3mx"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(0, 0, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niriw"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(200, 0, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlu63"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(400, 0, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0q6a"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(600, 0, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tokdc"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(800, 0, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bwg8"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(0, 140, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh2t0"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(200, 140, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn2bv"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(400, 140, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfkxo"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(600, 140, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7eh2"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(800, 140, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6ik5"]
+atlas = ExtResource("6_i8wf3")
+region = Rect2(0, 280, 200, 140)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r45v8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niriw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlu63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0q6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tokdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bwg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh2t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn2bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfkxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7eh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6ik5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 22.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7y1r"]
+atlas = ExtResource("7_dvi3j")
+region = Rect2(1108, 0, 1108, 437)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e87hv"]
+atlas = ExtResource("7_dvi3j")
+region = Rect2(0, 874, 1108, 437)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kfe4"]
+atlas = ExtResource("7_dvi3j")
+region = Rect2(0, 437, 1108, 437)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_252w5"]
+atlas = ExtResource("7_dvi3j")
+region = Rect2(1108, 874, 1108, 437)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drv11"]
+atlas = ExtResource("7_dvi3j")
+region = Rect2(0, 0, 1108, 437)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3e4f"]
+atlas = ExtResource("7_dvi3j")
+region = Rect2(1108, 437, 1108, 437)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ye88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7y1r")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e87hv")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kfe4")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_252w5")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drv11")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3e4f")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrb68"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="bossRoom" type="Node2D"]
+script = ExtResource("1_jjnim")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
@@ -706,9 +875,41 @@ layer_1/tile_data = PackedInt32Array(-65536, 2, 0, 0, 2, 1, 65536, 2, 2, -65502,
 layer_2/tile_data = PackedInt32Array(0, 196610, 5, 65536, 196610, 5, 131072, 196610, 5, 196608, 196610, 5, 262144, 196610, 5, 327680, 196610, 5, 393216, 196610, 5, 458752, 196610, 5, 524288, 196610, 5, 589824, 196610, 5, 655360, 196610, 5, 720896, 196610, 5, 786432, 196610, 5, 851968, 196610, 5, 917504, 196610, 5, 983040, 196610, 5, 1048576, 196610, 5, 1114112, 196610, 5, 1179648, 196610, 5, 1245184, 196610, 5, 1310720, 196610, 5, 1376256, 196610, 5, 1441792, 196610, 5, 1507328, 196610, 5, 1572864, 196610, 5, 1638400, 196610, 5, 34, 1048578, 8, 65570, 1048578, 8, 131106, 1048578, 8, 196642, 1048578, 8, 262178, 1048578, 8, 327714, 1048578, 8, 393250, 1048578, 8, 458786, 1048578, 8, 524322, 1048578, 8, 589858, 1048578, 8, 655394, 1048578, 8, 720930, 1048578, 8, 786466, 1048578, 8, 852002, 1048578, 8, 917538, 1048578, 8, 983074, 1048578, 8, 1048610, 1048578, 8, 1114146, 1048578, 8, 1179682, 1048578, 8, 1245218, 1048578, 8, 1310754, 1048578, 8, 1376290, 1048578, 8, 1441826, 1048578, 8, 1507362, 1048578, 8, 1572898, 1048578, 8, 1638434, 1048578, 8)
 
 [node name="Player" parent="." instance=ExtResource("4_o2ije")]
+unique_name_in_owner = true
 position = Vector2(996, 573)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+unique_name_in_owner = true
+
+[node name="Blood" type="AnimatedSprite2D" parent="Player/Camera2D"]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+y_sort_enabled = true
+position = Vector2(-1.79988, 4.70706)
+scale = Vector2(1.04075, 1.30285)
+sprite_frames = SubResource("SpriteFrames_r45v8")
+
+[node name="Heart2" type="AnimatedSprite2D" parent="Player/Camera2D"]
+unique_name_in_owner = true
+z_index = 4096
+y_sort_enabled = true
+position = Vector2(-54.4198, -68.5465)
+scale = Vector2(0.0906263, 0.084824)
+sprite_frames = SubResource("SpriteFrames_5ye88")
+animation = &"5"
+
+[node name="bossHealth" type="ProgressBar" parent="Player"]
+unique_name_in_owner = true
+z_index = 300
+offset_left = -51.8788
+offset_top = 47.8061
+offset_right = 50.1212
+offset_bottom = 74.8061
+theme_override_colors/font_color = Color(0.176471, 0.545098, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_jrb68")
+value = 100.0
+script = ExtResource("5_2a1s7")
 
 [node name="Wall" parent="." instance=ExtResource("5_ipkgg")]
 position = Vector2(792, 1239)
@@ -729,4 +930,10 @@ position = Vector2(861, 1)
 scale = Vector2(104.188, -0.734599)
 
 [node name="boss" parent="." instance=ExtResource("6_hs1ec")]
-position = Vector2(67, 208)
+position = Vector2(219, 360)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_42k73")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

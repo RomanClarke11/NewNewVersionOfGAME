@@ -100,7 +100,9 @@ func pickUpGold():
 	inventory.gold += 1
 
 func takeDamage():
+	
 	inventory.playerHit = true 
+	%hit.play()
 	
 
 func attack():
@@ -114,30 +116,39 @@ func attack():
 func swingSword():
 	if Input.is_key_pressed(KEY_SPACE):
 		%grunt.play()
-		if facing_up == true:
-			walking = false 
-			attack()
-			%AnimatedSprite2D.play("attackBack")
-			await get_tree().create_timer(0.4).timeout
-			walking = true
-		elif facing_down == true:
-			walking = false
-			attack()
-			%AnimatedSprite2D.play("attackForward")
-			await get_tree().create_timer(0.6).timeout
-			walking = true
-		elif facing_right == true:
-			walking = false
-			attack()
-			%AnimatedSprite2D.scale.x = 0.8
-			%AnimatedSprite2D.play("attackSide")
-			await get_tree().create_timer(0.6).timeout
-			walking = true 
-		elif  facing_left == true:
-			walking = false 
-			attack()
-			%AnimatedSprite2D.scale.x = -0.8
-			%AnimatedSprite2D.play("attackSide")
-			await get_tree().create_timer(0.6).timeout
-			walking = true 
+		if attacking == false:
+			if facing_up == true:
+				attacking = true
+				walking = false 
+				attack()
+				%AnimatedSprite2D.play("attackBack")
+				await get_tree().create_timer(0.4).timeout
+				attacking = false
+				walking = true
+			elif facing_down == true:
+				attacking = true
+				walking = false
+				attack()
+				%AnimatedSprite2D.play("attackForward")
+				await get_tree().create_timer(0.6).timeout
+				walking = true
+				attacking = false
+			elif facing_right == true:
+				attacking = true
+				walking = false
+				attack()
+				%AnimatedSprite2D.scale.x = 0.8
+				%AnimatedSprite2D.play("attackSide")
+				await get_tree().create_timer(0.6).timeout
+				walking = true 
+				attacking = false
+			elif  facing_left == true:
+				attacking = true
+				walking = false 
+				attack()
+				%AnimatedSprite2D.scale.x = -0.8
+				%AnimatedSprite2D.play("attackSide")
+				await get_tree().create_timer(0.6).timeout
+				walking = true 
+				attacking = false
 

@@ -1,7 +1,5 @@
 extends ColorRect
 var musicPlaying = true
-var gold 
-var bankGold
 func playMusic():
 	if musicPlaying == false:
 		%music.play()
@@ -13,7 +11,7 @@ func _ready():
 	%ColorRect/input.visible = false
 	%ColorRect/withdraw.visible = false
 
-func _process(delta):
+func _process(_delta):
 	var gold = Inventory.gold
 	var bankGold = Inventory.bankGold
 	%ColorRect/gold.text = str(gold)

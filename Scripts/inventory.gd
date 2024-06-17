@@ -26,6 +26,8 @@ var json = JSON.new()
 var path = "user://data"
 var data = {}
 var bankGold = 0
+var bossHealth = 100
+var HittingBoss = false
 
 
 
@@ -53,13 +55,14 @@ func load_game():
 		highestFloor = content.highestFloor
 		startFloor = content.startFloor
 		daveInMainLevel = content.daveInMainLevel
+		bankGold = content.bankGold
 		return content
 	else:
 		create_new_save()
 
 func _on_button_pressed():
 	if inDungeon == false:
-		var content = {"gold":gold, "health":health, "playerSpeed":playerSpeed, "bootsON":bootsON, "highestFloor":highestFloor, "startFloor":startFloor, "daveInMainLevel":daveInMainLevel }
+		var content = {"gold":gold, "health":health, "playerSpeed":playerSpeed, "bootsON":bootsON, "highestFloor":highestFloor, "startFloor":startFloor, "daveInMainLevel":daveInMainLevel, "bankGold":bankGold }
 		save(content)
 
 

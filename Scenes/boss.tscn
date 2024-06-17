@@ -1,17 +1,79 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3cc6pyeqdw0y"]
+[gd_scene load_steps=32 format=3 uid="uid://c3cc6pyeqdw0y"]
 
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_c6jj7"]
+[ext_resource type="Script" path="res://Scripts/bossHurt.gd" id="2_a24hw"]
 [ext_resource type="Script" path="res://Scripts/laser.gd" id="2_i3u55"]
 [ext_resource type="Texture2D" uid="uid://d0av5poatc80j" path="res://Sprites/bossLaser.png" id="4_4lih0"]
+[ext_resource type="Texture2D" uid="uid://d5dlxlvw0umw" path="res://Sprites/boom.png" id="4_q7v8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwyke"]
-size = Vector2(418.5, 350)
+size = Vector2(340.5, 310)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lt7bu"]
 radius = 313.307
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjy5l"]
-size = Vector2(421, 358)
+size = Vector2(340, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iogvv"]
+atlas = ExtResource("4_4lih0")
+region = Rect2(0, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4xge"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d60v"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4xs5"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(800, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fccoe"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(1200, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fusba"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(0, 400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67n53"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(400, 400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynsnr"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(800, 400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02v76"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(1200, 400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46bdk"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(0, 800, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4w6i"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(400, 800, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flgf3"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(800, 800, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5l1k"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(1200, 800, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2l8d"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(0, 1200, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrf8i"]
+atlas = ExtResource("4_q7v8d")
+region = Rect2(400, 1200, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6eir3"]
 atlas = ExtResource("4_4lih0")
@@ -45,6 +107,61 @@ region = Rect2(0, 3000, 1500, 1500)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_iogvv")
+}],
+"loop": true,
+"name": &"a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4xge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d60v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4xs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fccoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fusba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67n53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynsnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02v76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46bdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4w6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flgf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5l1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2l8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrf8i")
+}],
+"loop": true,
+"name": &"boom",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6eir3")
 }, {
 "duration": 1.0,
@@ -71,10 +188,11 @@ animations = [{
 }]
 
 [node name="boss" type="CharacterBody2D"]
+collision_mask = 5
 script = ExtResource("1_c6jj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(202.75, 173)
+position = Vector2(163.75, 193)
 shape = SubResource("RectangleShape2D_mwyke")
 
 [node name="stopmArea" type="Area2D" parent="CollisionShape2D"]
@@ -82,23 +200,26 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/stopmArea"]
+position = Vector2(12.25, -5)
 shape = SubResource("CircleShape2D_lt7bu")
 
 [node name="hurtBox" type="Area2D" parent="CollisionShape2D"]
+modulate = Color(0.364706, 0.909804, 0, 1)
 collision_layer = 5
 collision_mask = 5
+script = ExtResource("2_a24hw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/hurtBox"]
-position = Vector2(-3.25, -1)
+position = Vector2(-7.75, -8)
 shape = SubResource("RectangleShape2D_wjy5l")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(232, 162)
-scale = Vector2(0.337667, 0.326333)
+position = Vector2(187, 154)
+scale = Vector2(0.3415, 0.313833)
 sprite_frames = SubResource("SpriteFrames_kov6a")
-animation = &"laserCharge"
-autoplay = "laserCharge"
+animation = &"boom"
+autoplay = "a"
 
 [node name="laserPoint" type="Marker2D" parent="sprite"]
 unique_name_in_owner = true
@@ -106,8 +227,13 @@ position = Vector2(-47.384, -330.95)
 scale = Vector2(2.9615, 3.06435)
 script = ExtResource("2_i3u55")
 
-[node name="laserTime" type="Timer" parent="."]
+[node name="duck" type="Marker2D" parent="sprite"]
 unique_name_in_owner = true
+position = Vector2(-14.8075, 882.534)
+
+[node name="duckCoolDown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
 
 [node name="laserCoolDown" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -117,4 +243,5 @@ autostart = true
 [connection signal="Shoot" from="." to="sprite/laserPoint" method="_on_boss_shoot"]
 [connection signal="body_entered" from="CollisionShape2D/stopmArea" to="." method="_on_stopm_area_body_entered"]
 [connection signal="body_entered" from="CollisionShape2D/hurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="timeout" from="duckCoolDown" to="." method="_on_duck_cool_down_timeout"]
 [connection signal="timeout" from="laserCoolDown" to="." method="_on_laser_cool_down_timeout"]
